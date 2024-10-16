@@ -97,16 +97,12 @@ outlines:
       size: [14, 14]
       fillet: 0
   left:
-    # - where: true
-    #   what: rectangle
-    #   size: [cx + 1, cy + 1]
-    #   fillet: ot_fillet
     - what: polygon
       operation: stack
       fillet: ot_fillet
       points:
         - ref: matrix_inner_bottom
-          shift: [pad_x + spaceInsideOfKeys, -pad_y]
+          shift: [pad_x + spaceInsideOfKeys, -pad_y - 8.5]
         - ref: matrix_inner_top
           shift: [pad_x + spaceInsideOfKeys, pad_y - stagger_inner - stagger_index]
         - ref: matrix_middle_top
@@ -127,53 +123,18 @@ outlines:
           shift: [pad_x, -pad_y]
         - ref: matrix_pinky_bottom
           shift: [pad_x, -pad_y + stagger_ring]
-        # - ref: matrix_index_bottom
-        #   shift: [-3.3, -k_width / 2]
-        # - ref: thumbs_inner_cluster
-        #   shift: [-k_height / 2, -k_width / 2]
-        # - ref: thumbs_inner_cluster
-        #   shift: [k_height / 2, -k_width / 2]
-        # - ref: thumbs_home_cluster
-        #   shift: [-k_height / 2, -k_width / 2]
-        # - ref: thumbs_home_cluster
-        #   shift: [k_height / 2, -k_width / 2]
-        # - ref: thumbs_outer_cluster
-        #   shift: [-k_height / 2, -k_width / 2]
-        # - ref: thumbs_outer_cluster
-        #   shift: [k_height / 2, -k_width / 2]
-        # - ref: thumbs_outer_cluster
-        #   shift: [k_height / 2, k_width / 2]
-        # - ref: thumbs_outer_cluster
-        #   shift: [-k_height / 2, k_width / 2]
-        # - ref: matrix_inner_top
-        #   shift: [34, -42]
-        # - ref: matrix_inner_top
-        #   shift: [34, k_width / 2]
-        # - ref: matrix_inner_top
-        #   shift: [0, k_width / 2]
-#     - what: polygon
-#       fillet: ot_fillet
-#       points:
-#         - ref: matrix_inner_top
-#           shift: [0, 9]
-#         - ref: matrix_inner_top
-#           shift: [33, 9] 
-#         - ref: matrix_inner_top
-#           shift: [33, -30]
-#         # - ref: thumbs_outer_cluster
-#         #   shift: [2, 12]
-#         - ref: thumbs_outer_cluster
-#           shift: [10, 12]
-#         - ref: thumbs_outer_cluster
-#           shift: [12, -12]
-#         - ref: thumbs_inner_cluster
-#           shift: [-10, -10]
-#         - ref: matrix_pinky_bottom
-#           shift: [-9, -9]
-#         # - ref: matrix_inner_bottom
-#         #   shift: [42, -9]
-#         # - ref: matrix_inner_bottom
-#         #   shift: [0, -9]
+        - ref: thumbs_inner_cluster
+          shift: [-pad_x, push_y + 1.215]
+        - ref: thumbs_inner_cluster
+          shift: [-pad_x, -pad_y]
+        - ref: thumbs_inner_cluster
+          shift: [pad_x, -pad_y]
+        - ref: thumbs_home_cluster
+          shift: [pad_x, -pad_y]
+        - ref: thumbs_outer_cluster
+          shift: [pad_x, -pad_y]
+        - ref: thumbs_outer_cluster
+          shift: [pad_x, pad_y]
 
 pcbs:
   left:
@@ -203,7 +164,7 @@ pcbs:
         what: jstph
         where:
           ref: matrix_inner_bottom
-          shift: [push_x + spaceInsideOfKeys / 2, 0]
+          shift: [push_x + .75 * spaceInsideOfKeys, 0]
           rotate: -90
         params:
           pos: pos
@@ -211,27 +172,21 @@ pcbs:
       reset:
         what: EVQPUC
         where:
-          ref: matrix_inner_top
-          shift: [33, -16 - ctrl_height]
+          ref: matrix_inner_bottom
+          shift: [spaceInsideOfKeys + push_x - .5 * spacing, 0]
+          rotate: -90
         params:
           from: GND
           to: RST
       battery_switch:
         what: slider
         where:
-          ref: matrix_inner_top
-          shift: [33, -20 - ctrl_height]
+          ref: matrix_inner_bottom
+          shift: [spaceInsideOfKeys + push_x - .5 * spacing, -8.5]
+          rotate: -90
         params:
           from: pos
           to: RAW
-
-      # keyswitches:
-      #   where: true
-      #   what: choc
-      #   params:
-      #     hotswap: true
-      #     from: "{{col_net}}"
-      #     to: "{{colrow}}"
       nice_nano:
         what: nice_nano
         where:

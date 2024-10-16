@@ -1675,7 +1675,7 @@
         (descr "JST PH series connector, S2B-PH-K, side entry type, through hole, Datasheet: http://www.jst-mfg.com/product/pdf/eng/ePH.pdf")
         (tags "connector jst ph")
 
-        (at 197.25 143 -90)
+        (at 203.375 143 -90)
 
         
         (fp_text reference "JST1" (at 0 0) (layer F.SilkS) hide (effects (font (size 1.27 1.27) (thickness 0.15))))
@@ -1706,7 +1706,7 @@
         (descr "http://industrial.panasonic.com/cdbs/www-data/pdf/ATV0000/ATV0000CE5.pdf")
         (tags "SMD SMT SPST EVQPUL EVQPUC")
 
-        (at 208 142 0)
+        (at 209.125 143 -90)
         
         (fp_text reference "B1" (at 0 0) (layer "F.SilkS") hide (effects (font (size 1 1) (thickness 0.15))))
         (fp_text value "Panasonic_EVQPUL_EVQPUC" (at 0 3.5) (layer "F.Fab") hide (effects (font (size 1 1) (thickness 0.15))))
@@ -1730,12 +1730,12 @@
         (fp_line (start 2.35 1.75) (end 2.35 -1.75) (stroke (width 0.1) (type solid)) (layer "F.Fab"))
         
         
-        (pad "" np_thru_hole circle (at 0 -1.375 0) (size 0.75 0.75) (drill 0.75) (layers "*.Cu" "*.Mask"))
-        (pad "" np_thru_hole circle (at 0 1.375 0) (size 0.75 0.75) (drill 0.75) (layers "*.Cu" "*.Mask"))
-        (pad "1" smd rect (at -2.625 -0.85 0) (size 1.55 1) (layers "F.Cu" "F.Paste" "F.Mask") (net 32 "GND"))
-        (pad "1" smd rect (at 2.625 -0.85 0) (size 1.55 1) (layers "F.Cu" "F.Paste" "F.Mask") (net 32 "GND"))
-        (pad "2" smd rect (at -2.625 0.85 0) (size 1.55 1) (layers "F.Cu" "F.Paste" "F.Mask") (net 33 "RST"))
-        (pad "2" smd rect (at 2.625 0.85 0) (size 1.55 1) (layers "F.Cu" "F.Paste" "F.Mask") (net 33 "RST"))
+        (pad "" np_thru_hole circle (at 0 -1.375 -90) (size 0.75 0.75) (drill 0.75) (layers "*.Cu" "*.Mask"))
+        (pad "" np_thru_hole circle (at 0 1.375 -90) (size 0.75 0.75) (drill 0.75) (layers "*.Cu" "*.Mask"))
+        (pad "1" smd rect (at -2.625 -0.85 -90) (size 1.55 1) (layers "F.Cu" "F.Paste" "F.Mask") (net 32 "GND"))
+        (pad "1" smd rect (at 2.625 -0.85 -90) (size 1.55 1) (layers "F.Cu" "F.Paste" "F.Mask") (net 32 "GND"))
+        (pad "2" smd rect (at -2.625 0.85 -90) (size 1.55 1) (layers "F.Cu" "F.Paste" "F.Mask") (net 33 "RST"))
+        (pad "2" smd rect (at 2.625 0.85 -90) (size 1.55 1) (layers "F.Cu" "F.Paste" "F.Mask") (net 33 "RST"))
     )
     
     
@@ -1743,7 +1743,7 @@
         
         (module E73:SPDT_C128955 (layer F.Cu) (tstamp 5BF2CC3C)
 
-            (at 208 146 0)
+            (at 209.125 151.5 -90)
 
             
             (fp_text reference "T1" (at 0 0) (layer F.SilkS) hide (effects (font (size 1.27 1.27) (thickness 0.15))))
@@ -1767,15 +1767,15 @@
             (pad "" np_thru_hole circle (at -1.5 0) (size 1 1) (drill 0.9) (layers *.Cu *.Mask))
 
             
-            (pad 1 smd rect (at 2.25 2.075 0) (size 0.9 1.25) (layers F.Cu F.Paste F.Mask) (net 31 "pos"))
-            (pad 2 smd rect (at -0.75 2.075 0) (size 0.9 1.25) (layers F.Cu F.Paste F.Mask) (net 34 "RAW"))
-            (pad 3 smd rect (at -2.25 2.075 0) (size 0.9 1.25) (layers F.Cu F.Paste F.Mask))
+            (pad 1 smd rect (at 2.25 2.075 -90) (size 0.9 1.25) (layers F.Cu F.Paste F.Mask) (net 31 "pos"))
+            (pad 2 smd rect (at -0.75 2.075 -90) (size 0.9 1.25) (layers F.Cu F.Paste F.Mask) (net 34 "RAW"))
+            (pad 3 smd rect (at -2.25 2.075 -90) (size 0.9 1.25) (layers F.Cu F.Paste F.Mask))
             
             
-            (pad "" smd rect (at 3.7 -1.1 0) (size 0.9 0.9) (layers F.Cu F.Paste F.Mask))
-            (pad "" smd rect (at 3.7 1.1 0) (size 0.9 0.9) (layers F.Cu F.Paste F.Mask))
-            (pad "" smd rect (at -3.7 1.1 0) (size 0.9 0.9) (layers F.Cu F.Paste F.Mask))
-            (pad "" smd rect (at -3.7 -1.1 0) (size 0.9 0.9) (layers F.Cu F.Paste F.Mask))
+            (pad "" smd rect (at 3.7 -1.1 -90) (size 0.9 0.9) (layers F.Cu F.Paste F.Mask))
+            (pad "" smd rect (at 3.7 1.1 -90) (size 0.9 0.9) (layers F.Cu F.Paste F.Mask))
+            (pad "" smd rect (at -3.7 1.1 -90) (size 0.9 0.9) (layers F.Cu F.Paste F.Mask))
+            (pad "" smd rect (at -3.7 -1.1 -90) (size 0.9 0.9) (layers F.Cu F.Paste F.Mask))
         )
         
         
@@ -1892,8 +1892,8 @@
                 (effects (font (size 1.5 1.5) (thickness 0.2) ) (justify right))
             )
         
-  (gr_line (start 114.0200994000101 153.52030250653277) (end 209.47990059998992 154.47969749346723) (angle 90) (layer Edge.Cuts) (width 0.15))
-(gr_line (start 211.5 152.4797984924623) (end 211.5 94.5) (angle 90) (layer Edge.Cuts) (width 0.15))
+  (gr_line (start 231.76792644501444 172.63455156287586) (end 212.64135656122573 163.5425546945115) (angle 90) (layer Edge.Cuts) (width 0.15))
+(gr_line (start 211.5 161.7362514129432) (end 211.5 94.5) (angle 90) (layer Edge.Cuts) (width 0.15))
 (gr_line (start 127.5 92.5) (end 209.5 92.5) (angle 90) (layer Edge.Cuts) (width 0.15))
 (gr_line (start 125.5 94.5) (end 125.5 95) (angle 90) (layer Edge.Cuts) (width 0.15))
 (gr_line (start 125.5 95) (end 108.75 95) (angle 90) (layer Edge.Cuts) (width 0.15))
@@ -1901,8 +1901,14 @@
 (gr_line (start 104.75 103) (end 90 103) (angle 90) (layer Edge.Cuts) (width 0.15))
 (gr_line (start 88 105) (end 88 159.5) (angle 90) (layer Edge.Cuts) (width 0.15))
 (gr_line (start 90 161.5) (end 110 161.5) (angle 90) (layer Edge.Cuts) (width 0.15))
-(gr_line (start 112 159.5) (end 112 155.52020150753768) (angle 90) (layer Edge.Cuts) (width 0.15))
-(gr_arc (start 209.5 152.4797984924623) (end 209.4799006 154.4796974924623) (angle -90.57581508848011) (layer Edge.Cuts) (width 0.15))
+(gr_line (start 112 159.5) (end 112 155.499861729862) (angle 90) (layer Edge.Cuts) (width 0.15))
+(gr_line (start 113.99986179999999 153.4998617298551) (end 149.02222010000003 153.49744028925517) (angle 90) (layer Edge.Cuts) (width 0.15))
+(gr_line (start 151.0223583 155.49744028926207) (end 151.0223583 173.712302) (angle 90) (layer Edge.Cuts) (width 0.15))
+(gr_line (start 153.0223583 175.712302) (end 174.67846214503413 175.712302) (angle 90) (layer Edge.Cuts) (width 0.15))
+(gr_line (start 175.34650314503415 175.8271704) (end 197.40603667205184 183.64448836699808) (angle 90) (layer Edge.Cuts) (width 0.15))
+(gr_line (start 197.48776485799797 183.67547700175254) (end 222.08063107936582 193.62021761353702) (angle 90) (layer Edge.Cuts) (width 0.15))
+(gr_line (start 224.6430158270097 192.61131123043083) (end 232.72189856793798 175.28609142658343) (angle 90) (layer Edge.Cuts) (width 0.15))
+(gr_arc (start 213.5 161.7362514129432) (end 211.5 161.7362514129432) (angle -64.57547788766138) (layer Edge.Cuts) (width 0.15))
 (gr_arc (start 209.5 94.5) (end 211.5 94.5) (angle -90) (layer Edge.Cuts) (width 0.15))
 (gr_arc (start 127.5 94.5) (end 127.5 92.5) (angle -90) (layer Edge.Cuts) (width 0.15))
 (gr_arc (start 108.75 97) (end 108.75 95) (angle -90) (layer Edge.Cuts) (width 0.15))
@@ -1910,7 +1916,13 @@
 (gr_arc (start 90 105) (end 90 103) (angle -90) (layer Edge.Cuts) (width 0.15))
 (gr_arc (start 90 159.5) (end 88 159.5) (angle -90) (layer Edge.Cuts) (width 0.15))
 (gr_arc (start 110 159.5) (end 110 161.5) (angle -90) (layer Edge.Cuts) (width 0.15))
-(gr_arc (start 114 155.52020150753768) (end 114.0200994 153.52030250753768) (angle -90.57581508848052) (layer Edge.Cuts) (width 0.15))
+(gr_arc (start 114 155.499861729862) (end 113.9998618 153.499861729862) (angle -89.99604086164172) (layer Edge.Cuts) (width 0.15))
+(gr_arc (start 149.0223583 155.49744028926207) (end 151.0223583 155.49744028926207) (angle -90.00395913835747) (layer Edge.Cuts) (width 0.15))
+(gr_arc (start 153.0223583 173.712302) (end 151.0223583 173.712302) (angle -90) (layer Edge.Cuts) (width 0.15))
+(gr_arc (start 174.67846214503413 177.712302) (end 175.34650314503412 175.8271704) (angle -19.512986252304387) (layer Edge.Cuts) (width 0.15))
+(gr_arc (start 196.73799567205185 185.5296199669981) (end 197.48776487205186 183.6754769669981) (angle -2.5041940005036736) (layer Edge.Cuts) (width 0.15))
+(gr_arc (start 222.83040026531194 191.7660746482915) (end 222.08063106531193 193.6202176482915) (angle -87.01717857999182) (layer Edge.Cuts) (width 0.15))
+(gr_arc (start 230.90928300624017 174.44085484444406) (end 232.72189850624017 175.28609144444405) (angle -89.57547956047577) (layer Edge.Cuts) (width 0.15))
 
 )
 
