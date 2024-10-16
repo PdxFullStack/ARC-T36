@@ -1,32 +1,40 @@
 units:
-  # k_corner-radius: .7
-  # k_cushion: .2
-  k_height: 17
-  k_width: 18
-  # kcap_height: 17.5
-  # kcap_width: 16.5
-  
-  # k_padding: 19
-  # k_spread: 19
-  # k_stagger: 1
+  globalOffset_x: 100
+  globalOffset_y: -150
 
-  # tr_arch: 20
+
+  pad: 2
+
+  ctrl_height: 18.5 
+  ctrl_width: 33.5
+
+  px: cx + pad
+  py: cy + pad
+
+  push_x: px / 2
+  push_y: py / 2
+
+  pad_x: push_x + pad
+  pad_y: push_y + pad
+
+  spacing: .75
+
   tr_bias: 20
   tr_margin_x: 16
   tr_margin_y: -38
-  # tr_spread: 6
-  # tr_padding: 5
 
-  # ot_padding: 2
   ot_fillet: 1
+
+  k_width: 18
+  k_height: 17
   
 
 points:
   zones:
     matrix:
       key:
-        padding: k_height
-        spread: k_width
+        padding: cx + spacing
+        spread: cy + spacing
       columns:
         pinky:
           key:
@@ -54,6 +62,8 @@ points:
           row_net: P115
         top:
           row_net: P002
+      anchor: 
+        shift: [globalOffset_x, globalOffset_y]
     thumbs:
       anchor:
         ref: matrix_index_home
@@ -71,23 +81,28 @@ points:
         outer:
           key:
             rotate: -5
-            shift: [10.5, k_height * .25]
+            shift: [10.5, 0]
             column_net: P010
       rows:
         cluster:
           row_net: P017
 
 outlines:
+  keys:
+    - what: rectangle
+      where: true
+      size: [14, 14]
+      fillet: 0
   left:
-    - where: true
-      what: rectangle
-      size: [cx + 1, cy + 1]
-      fillet: ot_fillet
+    # - where: true
+    #   what: rectangle
+    #   size: [cx + 1, cy + 1]
+    #   fillet: ot_fillet
     - what: polygon
       fillet: ot_fillet
       points:
         - ref: matrix_index_bottom
-          shift: [-k_height / 2, -k_width / 2]
+          shift: [-3.3, -k_width / 2]
         - ref: thumbs_inner_cluster
           shift: [-k_height / 2, -k_width / 2]
         - ref: thumbs_inner_cluster
@@ -105,7 +120,9 @@ outlines:
         - ref: thumbs_outer_cluster
           shift: [-k_height / 2, k_width / 2]
         - ref: matrix_inner_top
-          shift: [35, k_width / 2]
+          shift: [34, -42]
+        - ref: matrix_inner_top
+          shift: [34, k_width / 2]
         - ref: matrix_inner_top
           shift: [0, k_width / 2]
 #     - what: polygon
@@ -138,16 +155,70 @@ pcbs:
       main:
         outline: left
     footprints:
-      keyswitches:
-        where: true
+      choc_hotswaps:
         what: choc
+        where: /^(matrix_|thumbs_).*/
         params:
+          keycaps: true
+          reverse: false
           hotswap: true
-          from: "{{col_net}}"
+          from: "{{column_net}}"
           to: "{{colrow}}"
+      diode:
+        what: diode
+        where: /^(matrix_|thumbs_).*/
+        params:
+          from: "{{colrow}}"
+          to: "{{row_net}}"
+        adjust:
+          shift: [7.8, -3.5]
+          rotate: 90
+      battery_jack:
+        what: jstph
+        where:
+          ref: matrix_inner_top
+          shift: [22 + ctrl_width / 2, -13 - ctrl_height]
+        params:
+          pos: pos
+          neg: GND
+      reset:
+        what: EVQPUC
+        where:
+          ref: matrix_inner_top
+          shift: [33, -16 - ctrl_height]
+        params:
+          from: GND
+          to: RST
+      battery_switch:
+        what: slider
+        where:
+          ref: matrix_inner_top
+          shift: [33, -20 - ctrl_height]
+        params:
+          from: pos
+          to: RAW
+
+      # keyswitches:
+      #   where: true
+      #   what: choc
+      #   params:
+      #     hotswap: true
+      #     from: "{{col_net}}"
+      #     to: "{{colrow}}"
       nice_nano:
         what: nice_nano
         where:
           ref: matrix_inner_top
-          shift: [22, -8]
+          shift: [22, -10]
           rotate: 90
+      front_text: &text
+        what: text
+        where: &textWhere
+            ref: matrix_inner_top
+            shift: [31, k_height / 2 - 1.5]
+        params: &textParams
+            text: ARC-T
+            justify: right
+            h_size: 1.5
+            v_size: 1.5
+            thickness: 0.2
