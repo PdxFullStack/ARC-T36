@@ -1,0 +1,153 @@
+units:
+  # k_corner-radius: .7
+  # k_cushion: .2
+  k_height: 17
+  k_width: 18
+  # kcap_height: 17.5
+  # kcap_width: 16.5
+  
+  # k_padding: 19
+  # k_spread: 19
+  # k_stagger: 1
+
+  # tr_arch: 20
+  tr_bias: 20
+  tr_margin_x: 16
+  tr_margin_y: -38
+  # tr_spread: 6
+  # tr_padding: 5
+
+  # ot_padding: 2
+  ot_fillet: 1
+  
+
+points:
+  zones:
+    matrix:
+      key:
+        padding: k_height
+        spread: k_width
+      columns:
+        pinky:
+          key:
+            column_net: P020
+        ring:
+          key:
+            column_net: P022
+            stagger: 8
+        middle:
+          key:
+            column_net: P024
+            stagger: 2.5
+        index:
+          key:
+            column_net: P100
+            stagger: -2.5
+        inner:
+          key:
+            column_net: P011
+            stagger: -1
+      rows:
+        bottom:
+          row_net: P113
+        home:
+          row_net: P115
+        top:
+          row_net: P002
+    thumbs:
+      anchor:
+        ref: matrix_index_home
+        rotate: -tr_bias
+        shift: [tr_margin_x, tr_margin_y]
+      columns:
+        inner:
+          key:
+            rotate: tr_bias
+            shift: [-8, -5]
+            column_net: P111
+        home:
+          key:
+            column_net: P009
+        outer:
+          key:
+            rotate: -5
+            shift: [10.5, k_height * .25]
+            column_net: P010
+      rows:
+        cluster:
+          row_net: P017
+
+outlines:
+  left:
+    - where: true
+      what: rectangle
+      size: [cx + 1, cy + 1]
+      fillet: ot_fillet
+    - what: polygon
+      fillet: ot_fillet
+      points:
+        - ref: matrix_index_bottom
+          shift: [-k_height / 2, -k_width / 2]
+        - ref: thumbs_inner_cluster
+          shift: [-k_height / 2, -k_width / 2]
+        - ref: thumbs_inner_cluster
+          shift: [k_height / 2, -k_width / 2]
+        - ref: thumbs_home_cluster
+          shift: [-k_height / 2, -k_width / 2]
+        - ref: thumbs_home_cluster
+          shift: [k_height / 2, -k_width / 2]
+        - ref: thumbs_outer_cluster
+          shift: [-k_height / 2, -k_width / 2]
+        - ref: thumbs_outer_cluster
+          shift: [k_height / 2, -k_width / 2]
+        - ref: thumbs_outer_cluster
+          shift: [k_height / 2, k_width / 2]
+        - ref: thumbs_outer_cluster
+          shift: [-k_height / 2, k_width / 2]
+        - ref: matrix_inner_top
+          shift: [35, k_width / 2]
+        - ref: matrix_inner_top
+          shift: [0, k_width / 2]
+#     - what: polygon
+#       fillet: ot_fillet
+#       points:
+#         - ref: matrix_inner_top
+#           shift: [0, 9]
+#         - ref: matrix_inner_top
+#           shift: [33, 9] 
+#         - ref: matrix_inner_top
+#           shift: [33, -30]
+#         # - ref: thumbs_outer_cluster
+#         #   shift: [2, 12]
+#         - ref: thumbs_outer_cluster
+#           shift: [10, 12]
+#         - ref: thumbs_outer_cluster
+#           shift: [12, -12]
+#         - ref: thumbs_inner_cluster
+#           shift: [-10, -10]
+#         - ref: matrix_pinky_bottom
+#           shift: [-9, -9]
+#         # - ref: matrix_inner_bottom
+#         #   shift: [42, -9]
+#         # - ref: matrix_inner_bottom
+#         #   shift: [0, -9]
+
+pcbs:
+  left:
+    outlines:
+      main:
+        outline: left
+    footprints:
+      keyswitches:
+        where: true
+        what: choc
+        params:
+          hotswap: true
+          from: "{{col_net}}"
+          to: "{{colrow}}"
+      nice_nano:
+        what: nice_nano
+        where:
+          ref: matrix_inner_top
+          shift: [22, -8]
+          rotate: 90

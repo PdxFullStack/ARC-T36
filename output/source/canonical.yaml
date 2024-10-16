@@ -1,0 +1,67 @@
+units:
+    k_height: 19
+    k_width: 19
+    tr_bias: 20
+    tr_margin_x: 16
+    tr_margin_y: -38
+points:
+    zones:
+        matrix:
+            key:
+                padding: k_height
+                spread: k_width
+            columns:
+                pinky:
+                    key:
+                        column_net: P020
+                ring:
+                    key:
+                        column_net: P022
+                        stagger: 8
+                middle:
+                    key:
+                        column_net: P024
+                        stagger: 2.5
+                index:
+                    key:
+                        column_net: P100
+                        stagger: -2.5
+                inner:
+                    key:
+                        column_net: P011
+                        stagger: -1
+            rows:
+                bottom:
+                    row_net: P113
+                home:
+                    row_net: P115
+                top:
+                    row_net: P002
+        thumbs:
+            anchor:
+                ref: matrix_index_home
+                rotate: '-tr_bias'
+                shift:
+                    - tr_margin_x
+                    - tr_margin_y
+            columns:
+                inner:
+                    key:
+                        rotate: tr_bias
+                        shift:
+                            - -8
+                            - -5
+                        column_net: P111
+                home:
+                    key:
+                        column_net: P009
+                outer:
+                    key:
+                        rotate: -5
+                        shift:
+                            - 10.5
+                            - k_height * .25
+                        column_net: P010
+            rows:
+                cluster:
+                    row_net: P017
